@@ -1,32 +1,60 @@
-<%- include layouts/header.ejs %>
+<% include layouts/header.ejs %>
 
   <div class="container">
-    <h1>
-      <%= title %>
-    </h1>
-    
     
 
+    <h1>Destacados</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% for(var i=0; i<productos_destacados.length; i++){%>
+        <div class="col">
+          <div class="card h-100 border-warning mb-3" style="width: 18rem;">
+            <img src="<%=productos[i].imagen%>"" class="card-img-top" alt="imagen del producto">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%=productos[i].titulo%>
+              </h5>
+              <p class="card-text">
+                <%=productos[i].descripcion%>
+              </p>
+              <div class="card-footer">
+                <small class="">$<%=productos[i].precio%></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+
+
+    </div>
+
+    <h1>
+      <%= titulo %>
+    </h1>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <% for(var i=0; i<productos.length; i++){%>
 
         <div class="col">
           <div class="card h-100" style="width: 18rem;">
-            <img src="<%=productos[i].imagen%>"" class="card-img-top" alt="...">
+            <img src="<%=productos[i].imagen%>"" class=" card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title"><%=productos[i].titulo%></h5>
-              <p class="card-text"><%=productos[i].descripcion%></p>
-              <h3 class="card-text">$<%=productos[i].precio%></h3>
+              <h5 class="card-title">
+                <%=productos[i].titulo%>
+              </h5>
+              <p class="card-text">
+                <%=productos[i].descripcion%>
+              </p>
+              <h3 class="card-text">$<%=productos[i].precio%>
+              </h3>
             </div>
           </div>
         </div>
 
-      <% } %>
-        
+        <% } %>
 
-  </div>
 
-  <%- include layouts/footer.ejs %>  
-</body>
+    </div>
 
-</html>
+    <%- include layouts/footer.ejs %>
+      </body>
+
+      </html>
