@@ -1,60 +1,143 @@
 <% include layouts/header.ejs %>
 
-  <div class="container">
-    
 
-    <h1>Destacados</h1>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <% for(var i=0; i<productos_destacados.length; i++){%>
-        <div class="col">
-          <div class="card h-100 border-warning mb-3" style="width: 18rem;">
-            <img src="<%=productos[i].imagen%>"" class="card-img-top" alt="imagen del producto">
-            <div class="card-body">
-              <h5 class="card-title">
-                <%=productos[i].titulo%>
-              </h5>
-              <p class="card-text">
-                <%=productos[i].descripcion%>
-              </p>
-              <div class="card-footer">
-                <small class="">$<%=productos[i].precio%></small>
+  <!-- Inicio Banner  -->
+  <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+      <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <% for(var i=0; i<destacados.length; i++){%>
+        <div class="carousel-item <%if(i==0){%>active<%}%>">
+          <div class="container">
+            <div class="row p-5">
+              <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                <img class="img-fluid" src="<%=destacados[i].imagen%>" alt="Imagen banner">
+              </div>
+              <div class="col-lg-6 mb-0 d-flex align-items-center">
+                <div class="text-align-left align-self-center">
+                  <h1 class="h1 text-success">
+                    <%=destacados[i].titulo%>
+                  </h1>
+                  <h3 class="h2">
+                    <%=destacados[i].subtitulo%>
+                  </h3>
+                  <p>
+                    <%=destacados[i].descripcion%>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <% } %>
-
-
+          <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel"
+            role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel"
+            role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+          </a>
     </div>
+  </div>
+  <!-- Fin Banner -->
 
-    <h1>
-      <%= titulo %>
-    </h1>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <% for(var i=0; i<productos.length; i++){%>
+  <!-- Inicio Tienda -->
+  <div class="container py-5">
+    <div class="row">
 
-        <div class="col">
-          <div class="card h-100" style="width: 18rem;">
-            <img src="<%=productos[i].imagen%>"" class=" card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">
-                <%=productos[i].titulo%>
-              </h5>
-              <p class="card-text">
-                <%=productos[i].descripcion%>
-              </p>
-              <h3 class="card-text">$<%=productos[i].precio%>
-              </h3>
+      <div class="col-lg-3">
+        <h1 class="h2 pb-4">Categorias</h1>
+        <ul class="list-unstyled templatemo-accordion">
+          <% for(var i=0; i<categorias.length; i++){ %>
+            <li class="pb-3">
+              <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                <%=categorias[i].nombre%>
+              </a>
+            </li>
+            <% } %>
+        </ul>
+      </div>
+
+      <div class="col-lg-9">
+        <div class="row">
+          <div class="col-md-6 pb-4">
+            <div class="d-flex">
+              <select class="form-control">
+                <option>De la A a la Z</option>
+                <option>Menor precio primero</option>
+                <option>Mayor precio primero</option>
+              </select>
             </div>
           </div>
         </div>
 
-        <% } %>
-
-
+        <!-- Productos -->
+        <div class="row">
+          <% for(var i=0; i<productos.length; i++){ %>
+            <div class="col-md-4">
+              <div class="card mb-4 product-wap rounded-0">
+                <div class="card rounded-0">
+                  <img class="card-img rounded-0 img-fluid" src="<%=productos[i].imagen%>">
+                  <div
+                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                    <ul class="list-unstyled">
+                      <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a>
+                      </li>
+                      <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                            class="far fa-eye"></i></a></li>
+                      <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                            class="fas fa-cart-plus"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <a href="shop-single.html" class="h3 text-decoration-none">
+                    <%=productos[i].titulo%>
+                  </a>
+                  <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                    <li>
+                      <%=productos[i].descripcion%>
+                    </li>
+                    <li class="pt-2">
+                      <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                      <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                      <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                      <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                      <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                    </li>
+                  </ul>
+                  <p class="text-center mb-0">$ <%=productos[i].precio%>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% } %>
+        </div>
+        <div div="row">
+          <ul class="pagination pagination-lg justify-content-end">
+            <li class="page-item disabled">
+              <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
+                tabindex="-1">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <%- include layouts/footer.ejs %>
-      </body>
+  <!-- Fin Tienda -->
 
-      </html>
+  <%- include layouts/footer.ejs %>
+    </body>
+
+    </html>
