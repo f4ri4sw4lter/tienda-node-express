@@ -7,8 +7,8 @@ const { Middleware: { error404, errorHandler } } = require('./middleware/index')
 // Rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var ProductosRouter = require('./components/productos/routes');
-var backofficeRouter = require('./routes/backoffice');
+const ProductosRouter = require('./components/productos/routes');
+const BackofficeRouter = require('./components/backoffice/routes');
 
 const app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', ProductosRouter);
-app.use('/backoffice', backofficeRouter);
+app.use('/backoffice', BackofficeRouter);
 
 // Errores
 app.use(error404);

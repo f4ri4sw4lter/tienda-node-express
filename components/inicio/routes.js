@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const Db = require('../db/db');
+const ProductosRouter = require('../components/productos/routes')
+
 
 router.get('/', function(req, res, next) {
-  Db.query("SELECT * FROM productos WHERE destacado = 1", function (err, productos_destacados) {
-    Db.query("SELECT * FROM items_carousel", function(err, items){
+  db.query("SELECT * FROM productos WHERE destacado = 1", function (err, productos_destacados) {
+    db.query("SELECT * FROM items_carousel", function(err, items){
       res.render('index', { titulo: 'Pagina Principal', 
                             productos_destacados:productos_destacados,
                             items:items});
