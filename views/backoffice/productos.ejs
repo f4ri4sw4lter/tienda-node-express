@@ -39,9 +39,9 @@
                                             </td>
                                             <td>
                                                 <% if(productos[i].destacado){ %>
-                                                    <button type="button" class="btn btn-warning">SI</button>
+                                                    <a href="/backoffice/productos/toggledestacado/<%=productos[i].id%>" type="button" class="btn btn-warning">SI</a>
                                                 <% }else{ %>
-                                                    <button type="button" class="btn btn-danger">NO</button>
+                                                    <a href="/backoffice/productos/toggledestacado/<%=productos[i].id%>" type="button" class="btn btn-danger">NO</a>
                                                 <% } %>
                                             </td>
                                             <td>

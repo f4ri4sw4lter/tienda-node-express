@@ -1,3 +1,5 @@
-db
+#Ignoramos los modulos
 node_modules
+
+#Ignoramos los valores de las variables de entorno
 .env
