@@ -1,0 +1,106 @@
+<%- include ('../layouts/bo_header.ejs') %>
+    <div id="layoutSidenav">
+        <%- include ('../layouts/bo_sidenav.ejs') %>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Configurar Paginas</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">Productos</li>
+                    </ol>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            Producto
+                        </div>
+                        <div class="card-body">
+                            <form action="">
+                                <div class="mb-3 row">
+                                    <label for="formId" class="col-sm-2 col-form-label">Id</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" value="<%=producto.id%>" id="formId" class="form-control" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="formTitulo" class="col-sm-2 col-form-label">Titulo</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" value="<%=producto.titulo%>" id="formTitulo" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="formDescripcion" class="col-sm-2 col-form-label">Descripcion</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" value="<%=producto.descripcion%>" id="formDescripcion" class="form-control" max="500">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="formPrecio" class="col-sm-2 col-form-label">Precio</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon1">$</span>
+                                            <input type="number" value="<%=producto.precio%>" id="formPrecio" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="" class="col-sm-2 col-form-label">Destacado</label>
+                                    <div class="col-sm-10">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Si</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">No</label>
+                                          </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="formCategoria" class="col-sm-2 col-form-label">Categoria</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-select" aria-label="Default select example" id="formCategoria">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                          </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="formImagen" class="col-sm-2 col-form-label">Imagen</label>
+                                    <div class="col-sm-10">
+                                        <img src="<%=producto.imagen%>" class="img-thumbnail" alt="..." id="formImagen">
+                                        <input type="file" class="form-control" id="inputGroupFile01">
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                    <button class="btn btn-danger" type="submit">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <%- include ('../layouts/bo_footer.ejs') %>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="../public/javascripts/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="../public/javascripts/datatables-simple-demo.js"></script>
+    </body>
+
+    </html>
