@@ -1,6 +1,7 @@
 const path = require('path');
 const logger = require('morgan');
 const express = require('express');
+const body_parser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { Middleware: { error404, errorHandler } } = require('./middleware/index')
 
@@ -11,6 +12,8 @@ const ProductosRouter = require('./components/productos/routes');
 const BackofficeRouter = require('./components/backoffice/routes');
 
 const app = express();
+app.use(body_parser.urlencoded({extended:true}));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
