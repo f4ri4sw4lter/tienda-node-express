@@ -38,11 +38,13 @@
                                                 $<%=productos[i].precio%>
                                             </td>
                                             <td>
+                                                <div class="d-grid gap-1 d-md-flexjustify-content-md-end">
                                                 <% if(productos[i].destacado){ %>
                                                     <a href="/backoffice/productos/toggledestacado/<%=productos[i].id%>" type="button" class="btn btn-warning">SI</a>
                                                 <% }else{ %>
                                                     <a href="/backoffice/productos/toggledestacado/<%=productos[i].id%>" type="button" class="btn btn-danger">NO</a>
                                                 <% } %>
+                                                </div>
                                             </td>
                                             <td>
                                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
